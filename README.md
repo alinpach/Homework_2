@@ -2,3 +2,5 @@
 # Applied Economics Homework 2
 # Iby 11701349
 # Pacher 12026049
+
+# 2 a): done
