@@ -78,7 +78,7 @@ summary(wage_log_reg1)
 
 # A 1 unit increase in education is associated with a 7.49% increase in wage when holding other variables constant.
 # A 1 unit increase in experience is associated with a 1.53% increase in wage when holding other variables constant.
-# A 1 unit increase in tenure is associated with a 1.34% increase in wage when holding other variables constant
+# A 1 unit increase in tenure is associated with a 1.34% increase in wage when holding other variables constant.
 
 ## 3b #############################################
 
