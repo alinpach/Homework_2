@@ -37,3 +37,4 @@ cor(andy$advert,advert_sq)
 # The coefficients for advertising differ a lot between the two models as advertising and advertising squared are highly correlated.
 
 
+# this is a test 
