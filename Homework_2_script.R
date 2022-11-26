@@ -94,4 +94,3 @@ view(wage2)
 ## 3e #############################################
 wage_log_reg2 <- lm(log(wage) ~ educ + exper + tenure + expersq + tenuresq, data = wage2)
 summary(wage_log_reg2)
->>>>>>> da7c922f3d079ec0bf940590609eaad7bb677e6c
