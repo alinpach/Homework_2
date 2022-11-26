@@ -4,37 +4,57 @@
 # Pacher 12026049
 
 
-library("tidyverse")
+###################################################
+# Exercise 1
+###################################################
 
+
+
+
+###################################################
+# Exercise 2
+###################################################
+
+library(tidyverse)
 library(haven)
+
 andy <- read_dta("andy.dta")
 view(andy)
 
+## 2a #############################################
 
-# 2 a)
 # Regression model: x1 = price, x2 = advertising
 andy_lm <- lm(sales ~ price + advert, data = andy)
 summary(andy_lm)
 
-plot(andy_lm)
-
 # advertising^2
-advert_sq <- andy$advert^2
-advert_sq
-andy$advert
+andy$advert_sq <- (andy$advert)^2
+view(andy)
 
 # Regression model: x1 = price, x2 = advertising, x3 = advertising^2
 andy_lm_ads_sq <- lm(sales ~ price + advert + advert_sq, data = andy)
 summary(andy_lm_ads_sq)
 
-plot(andy_lm_ads_sq)
-
 cor(andy$price,andy$advert)
-cor(andy$price,advert_sq)
-cor(andy$advert,advert_sq)
+cor(andy$price,andy$advert_sq)
+cor(andy$advert,andy$advert_sq)
 
 # The coefficients for price hardly differ from the two models as advertising and advertising squared hardly effect price.
 # The coefficients for advertising differ a lot between the two models as advertising and advertising squared are highly correlated.
+
+## 2b #############################################
+
+sal_ad2_reg <- lm(sales ~ advert_sq, data = andy)
+summary(sal_ad2_reg)
+andy$sales_res <- sal_ad2_reg$residuals
+
+pri_ad2_reg <- lm(price ~ advert_sq, data = andy)
+summary(pri_ad2_reg)
+andy$price_res <- pri_ad2_reg$residuals
+
+adv_ad2_reg <- lm(advert ~ advert_sq, data = andy)
+summary(adv_ad2_reg)
+andy$advert_res <- adv_ad2_reg$residuals
 
 
 ###################################################
