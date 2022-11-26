@@ -3,6 +3,8 @@
 # Iby 11701349
 # Pacher 12026049
 
-# 2 a): done
+# 2a): done
+# 2b): started
 
-# 3a) done
+# 3a): done
+# 3d-e): started
