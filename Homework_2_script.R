@@ -37,5 +37,41 @@ cor(andy$advert,advert_sq)
 # The coefficients for advertising differ a lot between the two models as advertising and advertising squared are highly correlated.
 
 
+<<<<<<< HEAD
 # this is a test 
 # 
+=======
+###################################################
+# Exercise 3
+###################################################
+
+install.packages("wooldridge")
+library(wooldridge)
+
+data("wage2")
+view(wage2)
+
+## 3a #############################################
+
+wage_log_reg1 <- lm(log(wage) ~ educ + exper + tenure, data = wage2)
+summary(wage_log_reg1)
+
+# A 1 unit increase in education is associated with a 7.49% increase in wage when holding other variables constant.
+# A 1 unit increase in experience is associated with a 1.53% increase in wage when holding other variables constant.
+# A 1 unit increase in tenure is associated with a 1.34% increase in wage when holding other variables constant.
+
+## 3b #############################################
+
+
+## 3c #############################################
+
+
+## 3d #############################################
+wage2$expersq <- (wage2$exper)^2
+wage2$tenuresq <- (wage2$tenure)^2
+view(wage2)
+
+## 3e #############################################
+wage_log_reg2 <- lm(log(wage) ~ educ + exper + tenure + expersq + tenuresq, data = wage2)
+summary(wage_log_reg2)
+>>>>>>> da7c922f3d079ec0bf940590609eaad7bb677e6c
