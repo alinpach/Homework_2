@@ -10,6 +10,7 @@ library(haven)
 andy <- read_dta("andy.dta")
 view(andy)
 
+
 # 2 a)
 # Regression model: x1 = price, x2 = advertising
 andy_lm <- lm(sales ~ price + advert, data = andy)
