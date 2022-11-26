@@ -56,11 +56,11 @@ adv_ad2_reg <- lm(advert ~ advert_sq, data = andy)
 summary(adv_ad2_reg)
 andy$advert_res <- adv_ad2_reg$residuals
 
+res_reg <- lm(andy$sales_res ~ andy$price_res + andy$advert_res-1, data = andy)
+summary(res_reg)
 
-<<<<<<< HEAD
-# this is a test 
-# 
-=======
+
+
 ###################################################
 # Exercise 3
 ###################################################
