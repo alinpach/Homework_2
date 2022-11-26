@@ -35,3 +35,5 @@ cor(andy$advert,advert_sq)
 
 # The coefficients for price hardly differ from the two models as advertising and advertising squared hardly effect price.
 # The coefficients for advertising differ a lot between the two models as advertising and advertising squared are highly correlated.
+
+
