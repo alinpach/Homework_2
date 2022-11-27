@@ -35,9 +35,9 @@ view(andy)
 andy_lm_ads_sq <- lm(sales ~ price + advert + advert_sq, data = andy)
 summary(andy_lm_ads_sq)
 
-cor(andy$price,andy$advert)
-cor(andy$price,andy$advert_sq)
-cor(andy$advert,andy$advert_sq)
+cor(andy$price, andy$advert)
+cor(andy$price, andy$advert_sq)
+cor(andy$advert, andy$advert_sq)
 
 # The coefficients for price hardly differ from the two models as advertising and advertising squared hardly effect price.
 # The coefficients for advertising differ a lot between the two models as advertising and advertising squared are highly correlated.
@@ -59,6 +59,11 @@ andy$advert_res <- adv_ad2_reg$residuals
 res_reg <- lm(andy$sales_res ~ andy$price_res + andy$advert_res-1, data = andy)
 summary(res_reg)
 
+## 2c #############################################
+
+df <- data.frame(x = 1:75, andy$price, andy$advert, andy$advert_sq)
+M <- as.matrix(df)
+M
 
 ###################################################
 # Exercise 3
