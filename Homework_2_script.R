@@ -60,7 +60,6 @@ res_reg <- lm(andy$sales_res ~ andy$price_res + andy$advert_res-1, data = andy)
 summary(res_reg)
 
 
-
 ###################################################
 # Exercise 3
 ###################################################
