@@ -39,9 +39,6 @@ cor(andy$price, andy$advert)
 cor(andy$price, andy$advert_sq)
 cor(andy$advert, andy$advert_sq)
 
-# The coefficients for price hardly differ from the two models as advertising and advertising squared hardly effect price.
-# The coefficients for advertising differ a lot between the two models as advertising and advertising squared are highly correlated.
-
 ## 2b #############################################
 
 sal_ad2_reg <- lm(sales ~ advert_sq, data = andy)
@@ -62,7 +59,7 @@ summary(res_reg)
 ## 2c #############################################
 
 df <- data.frame(rep(1,75), andy$price, andy$advert, andy$advert_sq)
-X<- as.matrix(df)
+X <- as.matrix(df)
 X
 
 ## 2d #############################################
@@ -70,41 +67,57 @@ X
 y <- c(andy$sales)
 beta <- (solve((t(X)%*%X))%*%t(X))%*%y
 beta
+
 summary(andy_lm_ads_sq)
 
 ## 2e #############################################
 
 u_hat <- c(andy_lm_ads_sq$residuals)
-# y=y_hat-u_hat
+u_hat
+
+# y = y_hat - u_hat
 y_hat <- c(y-u_hat)
-# t(y_hat)*u_hat = 0
-t(y_hat)%*%u_hat # approximatly equal to 0
+y_hat
+
+# t(y_hat) * u_hat = 0
+t(y_hat)%*%u_hat # approximately equal to 0
 
 ## 2f #############################################
 
-# R_sq = 1 - SSR/SST
 # SSR = t(u_hat)*u_hat
-# SST = t(y)*y - n*(mean(y))^2
-# R_sq_ad = 1 - (1-R_sq)(n-1)/(n-k-1)
-
 SSR <- t(u_hat)%*%u_hat
-SST<- t(y)%*%y-75*(mean(y))^2
-R_sq <- 1-SSR/SST
-R_sq_ad <- 1-(1-R_sq)*74/71
 
-R_sq
-R_sq_ad
+# SST = t(y)*y - n*(mean(y))^2
+# n = number of observations
+SST<- t(y)%*%y-75*(mean(y))^2
+
+# R2 = 1 - SSR/SST
+R2 <- 1-SSR/SST
+R2
+
+# R2_ad = 1 - (1-R2)*(n-1)/(n-k-1)
+# R2_ad = 1 - (SSR/(n-k-1))/(SST/(n-1))
+# k = number of variables
+R2_ad <- 1-(SSR/(75-3-1))/(SST/(75-1))
+R2_ad
+
 summary(andy_lm_ads_sq)
 
 ## 2g #############################################
 
-# VC_M = sigma^2solve((t(X)*X))
-sigma_hat_sq <- c(SSR/71)
-VC_M <- sigma_hat_sq*(solve(t(X)%*%X))
-VC_M
-VC_M_diag <- diag(VC_M)
-sqrt(VC_M_diag)
+# estimate sigma squared
+sigma_hat_sq <- c(SSR/(75-3-1))
+
+# VC = sigma^2 * solve((t(X) * X))
+VC <- sigma_hat_sq*(solve(t(X)%*%X))
+VC
+
+# diagonal elements
+VC_diag <- diag(VC)
+sqrt(VC_diag)
+
 summary(andy_lm_ads_sq)
+
 
 ###################################################
 # Exercise 3
