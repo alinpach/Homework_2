@@ -130,6 +130,20 @@ summary(wage_log_reg1)
 
 ## 3c #############################################
 
+# H1 = beta_exper - beta_tenure != 0
+wage_log_coefficiants <- as.matrix(wage_log_reg1$coefficients)
+wage_log_coefficiants
+beta_exper <- wage_log_coefficiants[3]
+beta_tenure <- wage_log_coefficiants[4]
+se_exper <- 0.003370
+t <- (beta_exper - beta_tenure)/se_exper
+t_statistic <- abs(t)
+c.0025 <- 1.96
+if((t_statistic > c.0025)) {
+  print("reject H_0")
+  } else
+    print("do not reject H_0")
+
 
 ## 3d #############################################
 wage2$expersq <- (wage2$exper)^2
