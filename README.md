@@ -20,6 +20,8 @@
 # 3b): done (check again)
 # 3c): done (check again)
 # 3d): done
-# 3e): to do
+# 3e): done
 
 # 3c: was sagst du dazu?
+# A: haette ich nicht besser machen koennen. hab noch den std.err. extrahieren koennen
+# 3e: auf die gleiche art geloest wie du in 3c. und es scheint zu passen

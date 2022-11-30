@@ -148,8 +148,13 @@ wage_log_coefficiants
 
 beta_exper <- wage_log_coefficiants[3]
 beta_tenure <- wage_log_coefficiants[4]
-se_exper <- 0.003370
+
+se_exper <- coef(summary(wage_log_reg1))["exper", "Std. Error"]
+se_exper
+
 t <- (beta_exper - beta_tenure)/se_exper
+t
+
 t_statistic <- abs(t)
 c.0025 <- 1.96
 if((t_statistic > c.0025)) {
@@ -159,10 +164,34 @@ if((t_statistic > c.0025)) {
 
 
 ## 3d #############################################
+
+
+## 3e #############################################
 wage2$expersq <- (wage2$exper)^2
 wage2$tenuresq <- (wage2$tenure)^2
 view(wage2)
 
-## 3e #############################################
 wage_log_reg2 <- lm(log(wage) ~ educ + exper + tenure + expersq + tenuresq, data = wage2)
 summary(wage_log_reg2)
+
+# H1 = beta4 - beta5 != 0
+wage_log_coefficiants_2 <- as.matrix(wage_log_reg2$coefficients)
+wage_log_coefficiants_2
+
+beta_4 <- wage_log_coefficiants_2[5]
+beta_5 <- wage_log_coefficiants_2[6]
+
+se_expersq <- coef(summary(wage_log_reg2))["expersq", "Std. Error"]
+se_expersq
+
+t2 <- (beta_4 - beta_5)/se_expersq
+t2
+
+t2_statistic <- abs(t)
+c.0025 <- 1.96
+if((t2_statistic > c.0025)) {
+  print("reject H_0")
+} else
+  print("do not reject H_0")
+
+
