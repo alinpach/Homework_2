@@ -95,7 +95,6 @@ SST<- t(y)%*%y-75*(mean(y))^2
 R2 <- 1-SSR/SST
 R2
 
-# R2_ad = 1 - (1-R2)*(n-1)/(n-k-1)
 # R2_ad = 1 - (SSR/(n-k-1))/(SST/(n-1))
 # k = number of variables
 R2_ad <- 1-(SSR/(75-3-1))/(SST/(75-1))
@@ -146,6 +145,7 @@ summary(wage_log_reg1)
 # H1 = beta_exper - beta_tenure != 0
 wage_log_coefficiants <- as.matrix(wage_log_reg1$coefficients)
 wage_log_coefficiants
+
 beta_exper <- wage_log_coefficiants[3]
 beta_tenure <- wage_log_coefficiants[4]
 se_exper <- 0.003370
