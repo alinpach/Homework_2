@@ -17,3 +17,5 @@
 # 3c): started
 # 3d): done
 # 3e): to do
+
+# 3c: was sagst du dazu?
