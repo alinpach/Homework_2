@@ -25,3 +25,6 @@
 # 3c: was sagst du dazu?
 # A: haette ich nicht besser machen koennen. hab noch den std.err. extrahieren koennen
 # 3e: auf die gleiche art geloest wie du in 3c. und es scheint zu passen
+
+# habe im Word Dokument wenn wichtige Werte in den r prints sind diese markiert
+# meiner Meinung nach können wir dies so abgeben
