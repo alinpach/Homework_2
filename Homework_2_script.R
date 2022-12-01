@@ -23,7 +23,7 @@ andy
 
 ## 2a #############################################
 
-# Regression model: x1 = price, x2 = advertising
+# Regression model(1): x1 = price, x2 = advertising
 andy_lm <- lm(sales ~ price + advert, data = andy)
 summary(andy_lm)
 
@@ -31,7 +31,7 @@ summary(andy_lm)
 andy$advert_sq <- (andy$advert)^2
 view(andy)
 
-# Regression model: x1 = price, x2 = advertising, x3 = advertising^2
+# Regression model(3): x1 = price, x2 = advertising, x3 = advertising^2
 andy_lm_ads_sq <- lm(sales ~ price + advert + advert_sq, data = andy)
 summary(andy_lm_ads_sq)
 
@@ -88,16 +88,16 @@ t(y_hat)%*%u_hat # approximately equal to 0
 SSR <- t(u_hat)%*%u_hat
 
 # SST = t(y)*y - n*(mean(y))^2
-# n = number of observations
-SST<- t(y)%*%y-75*(mean(y))^2
+n <- 75 # n = number of observations
+SST<- t(y)%*%y-n*(mean(y))^2
 
 # R2 = 1 - SSR/SST
 R2 <- 1-SSR/SST
 R2
 
 # R2_ad = 1 - (SSR/(n-k-1))/(SST/(n-1))
-# k = number of variables
-R2_ad <- 1-(SSR/(75-3-1))/(SST/(75-1))
+k <- 3 # k = number of variables
+R2_ad <- 1-(SSR/(n-k-1))/(SST/(n-1))
 R2_ad
 
 summary(andy_lm_ads_sq)
