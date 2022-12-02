@@ -4,9 +4,9 @@
 # Pacher 12026049
 
 # 1a): done
-# 1b): done (check again)
+# 1b): done
 # 1c): done
-# 1d): done (check again)
+# 1d): done
 
 # 2a): done
 # 2b): done
@@ -17,8 +17,8 @@
 # 2g): done
 
 # 3a): done
-# 3b): done (check again)
-# 3c): done (check again)
+# 3b): done
+# 3c): done
 # 3d): done
 # 3e): done
 
